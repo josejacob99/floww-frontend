@@ -1,0 +1,16 @@
+<div class="sidebar mat-typography">
+  <div class="top">
+  <app-logo></app-logo>
+    <div class="trees">
+      <div class="tree">
+        <!-- <span class="category-title">Expenses</span> -->
+        <app-category-tree></app-category-tree>
+      </div>
+      <div class="tree">
+        <!-- <span class="category-title">Income</span> -->
+        <app-category-tree [type]="type.Income"></app-category-tree>
+      </div>
+    </div>
+  </div>
+<app-sidebar-footer></app-sidebar-footer>
+</div>

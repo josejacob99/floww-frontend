@@ -1,0 +1,27 @@
+<app-popover #datePopover iconRight="expand_more" text="{{dateRangeControl.value.start | date: 'dd / MMM / yyyy' | uppercase}} - {{dateRangeControl.value.end | date: 'dd / MMM / yyyy' | uppercase}}">
+  <app-card [noPadding]="true" [shadow]="3">
+    <div class="date-range-control">
+      <div class="form-field">
+        <label class="control-label">Filter in Date Range</label>
+        <mat-date-range-input [formGroup]="dateRangeControl" [rangePicker]="campaignOnePicker"
+          [comparisonStart]="dateRangeControl.value.start" [comparisonEnd]="dateRangeControl.value.end">
+          <input matStartDate placeholder="Start date" formControlName="start">
+          <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+      </div>
+      <mat-datepicker-toggle color="primary" matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+    </div>
+
+    <ul class="filter-menu text-sm font-semibold cursor-pointer" (click)="datePopover.hide()">
+      <li class="filter-menu-item hover:bg-gray-800 hover:text-gray-100" (click)="quickFilterChange(quickFilters.Today)"><span>Today</span></li>
+      <li class="filter-menu-item hover:bg-gray-800 hover:text-gray-100" (click)="quickFilterChange(quickFilters.ThisWeek)"><span>This Week</span></li>
+      <li class="filter-menu-item hover:bg-gray-800 hover:text-gray-100" (click)="quickFilterChange(quickFilters.ThisMonth)"><span>This Month</span></li>
+
+      <li class="filter-menu-item hover:bg-gray-800 hover:text-gray-100" (click)="quickFilterChange(quickFilters.TwoMonths)"><span>Last 2 Month</span></li>
+
+      <li class="filter-menu-item hover:bg-gray-800 hover:text-gray-100" (click)="quickFilterChange(quickFilters.ThreeMonths)"><span>Last 3 Month</span></li>
+    </ul>
+  </app-card>
+
+</app-popover>

@@ -1,0 +1,29 @@
+@use '../../../commonstyles' as *;
+
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border: 1px solid black;
+
+  .progress {
+    position: relative;
+    height: 6px;
+    width: 0%;
+    background: black;
+    animation: progressBar 1s ease-in-out;
+    animation-fill-mode:both;
+  }
+}
+
+.indicator {
+  position: absolute;
+  @include text-bold;
+  text-align: end;
+  padding: 6px 0px;
+  right: -10%;
+}
+
+@keyframes progressBar {
+  0% { width: 0; }
+}

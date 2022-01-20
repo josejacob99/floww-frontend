@@ -1,0 +1,25 @@
+@use '../../../../commonstyles' as *;
+
+:host {
+  margin-right:24px;
+  width: 100%;
+}
+
+.content {
+  padding:0 12px;
+}
+
+.summary-content {
+  display: flex;
+  justify-content: space-between;
+
+  height: 70px;
+}
+
+.summary-text-small {
+  @include text-xs;
+  display: block;
+}
+.summary-text-title {
+  @include text-xl;
+}

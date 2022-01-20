@@ -1,0 +1,26 @@
+<div class="layout">
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="container mat-typography">
+    <app-toolbar>
+      <app-date-filter></app-date-filter>
+      <app-active-category></app-active-category>
+    </app-toolbar>
+    <div class="content-container">
+      <app-card class="transactions-card">
+        <app-header title="Transactions" subtitle="Expenses / Incomes in the selected date range."></app-header>
+        <app-transactions></app-transactions>
+      </app-card>
+      <div class="overview-cards">
+        <div class="summary-cards">
+          <app-summary-card></app-summary-card>
+        </div>
+        <div class="category-overview">
+          <app-category-overview></app-category-overview>
+        </div>
+      </div>
+
+    </div>
+
+    <app-add-new-fab></app-add-new-fab>
+  </div>
+</div>

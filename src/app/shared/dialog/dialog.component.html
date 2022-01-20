@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Add new Category</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Category Name</mat-label>
+    <input type="text" name="category" matInput [(ngModel)]="catname">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Close</button>
+  <button mat-button (click)="addCategory()">Ok</button>
+</div>

@@ -1,0 +1,94 @@
+@use  '../../../commonstyles' as *;
+
+:host :ng-deep {
+  .mat-input-element:disabled {
+    color: black;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $border-color;
+}
+
+.left {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.header-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.header-subtitle {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+
+.modal-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.close-btn-icon {
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 37px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tx-form {
+  padding: 24px 0;
+  display: grid;
+  grid-template-areas: "sidebar container";
+  grid-template-columns: 300px calc(100% - 310px);
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  border-right: 1px solid $border-color;
+  height: 100%;
+}
+
+.container {
+  grid-area: container;
+}
+
+
+.trees {
+  padding-right: 24px;
+}
+.tree {
+  padding: 14px 0;
+  border-bottom: 0.5px solid $border-color;
+}
+
+.category-header {
+  font-weight: 700;
+  padding-bottom: 4px;
+}
+
+.category-title {
+  @include text-bold;
+    cursor: pointer;
+}
+
+
+.delete-btn {
+  margin: 0 10px;
+}

@@ -1,0 +1,59 @@
+@use '../../../commonstyles' as *;
+
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar container";
+  grid-template-columns: 300px calc(100% - 310px);
+  height: 100%;
+  background: #eaeaea;
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas: "container";
+    grid-template-columns: 100%;
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.container {
+  grid-area: container;
+}
+
+.content-container {
+  display: flex;
+  width: 99%;
+  padding: 8px;
+}
+
+.transactions-card {
+  max-height: 400px;
+  width: 40%;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+  }
+}
+
+.overview-cards {
+  display: flex;
+  padding: 0 12px 0 24px;
+  width: 60%;
+  flex-direction: column;
+}
+
+.summary-cards {
+  display: flex;
+
+  @include text-bold;
+}
+
+.category-overview {
+  padding: 12px 24px 0 0px;
+  height: calc(100vh - 285px);
+  overflow: hidden;
+}
+
+.footer {
+  padding: 0 8px;
+}

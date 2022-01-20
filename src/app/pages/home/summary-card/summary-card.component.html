@@ -1,0 +1,19 @@
+<app-card>
+  <app-header title="Summary" subtitle="Transaction Summary in the selected date range."></app-header>
+  <div class="content">
+    <div class="summary-content">
+      <div>
+        <span class="summary-text-small">Expense</span>
+        <span class="summary-text-title">{{totalExpense | usercurreny}}</span>
+      </div>
+      <div>
+        <span class="summary-text-small">Income</span>
+        <span class="summary-text-title">{{totalIncome | usercurreny}}</span>
+      </div>
+    </div>
+    <div>
+      <span class="summary-text-small">Total Transactions</span>
+      <span class="summary-text-title">{{totalTransactions}}</span>
+    </div>
+  </div>
+</app-card>

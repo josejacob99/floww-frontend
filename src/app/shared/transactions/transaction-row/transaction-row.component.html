@@ -1,0 +1,12 @@
+<div class="item-row" (click)="edit(transaction?.id)">
+  <div class="first">
+    <mat-icon>{{getIcon()}}</mat-icon>
+    <div>
+      <span class="title">{{transaction?.remarks | titlecase}}</span>
+      <span class="subtitle">{{transaction?.category | category}}</span>
+    </div>
+  </div>
+  <div class="last">
+     {{transaction?.amount | usercurreny}}
+  </div>
+</div>

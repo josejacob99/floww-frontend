@@ -1,0 +1,24 @@
+@use  '../../../commonstyles' as *;
+
+.sidebar {
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.tree {
+  padding: 24px 0 24px;
+  border-bottom: 0.5px solid $border-color;
+}
+
+.top {
+  padding: 0 24px;
+}
+
+.category-title {
+  @include text-bold;
+}
+
