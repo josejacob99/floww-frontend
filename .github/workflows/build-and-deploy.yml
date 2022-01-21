@@ -61,7 +61,5 @@ jobs:
             # Run a new container from a new image
             docker run -d \
             -p 3001:80 \
-            --network host \
-            --restart always \
             --name $(echo $IMAGE_NAME) \
             $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
