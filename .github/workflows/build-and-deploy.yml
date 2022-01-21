@@ -16,7 +16,7 @@ on:
 #2
 env:
   REGISTRY: "registry.digitalocean.com/ververepo"
-  IMAGE_NAME: "floww-frontend8"
+  IMAGE_NAME: "floww-frontend"
 
 #3
 jobs:
