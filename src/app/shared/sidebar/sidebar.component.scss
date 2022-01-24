@@ -1,0 +1,37 @@
+@use  '../../../commonstyles' as *;
+
+
+:host {
+  width: 500px;
+  transition: width 500ms;
+}
+
+
+
+.sidebar {
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.tree {
+  padding: 24px 0 24px;
+  border-bottom: 0.5px solid $border-color;
+}
+
+.top {
+  padding: 0 2px 0 24px;
+}
+
+.category-title {
+  @include text-bold;
+}
+
+.trees {
+  height: calc(100vh - 150px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

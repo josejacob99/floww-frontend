@@ -1,0 +1,80 @@
+@use '../../../commonstyles' as *;
+
+.layout {
+  display: flex;
+  height: 100%;
+  background: #eaeaea;
+
+  @media screen and (max-width: $mobile-bp) {
+
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  padding: 8px;
+  @media screen and (max-width: $mobile-bp) {
+    flex-direction: column;
+    padding: 0;
+  }
+ }
+
+.transactions-card {
+  max-height: 400px;
+  width: 60%;
+  @media screen and (max-width: $mobile-bp) {
+    max-height: 100%;
+    width: 100%;
+  }
+}
+
+.overview-cards {
+  display: flex;
+  padding: 0 12px 0 24px;
+  width: 60%;
+  flex-direction: column;
+  @media screen and (max-width: $mobile-bp) {
+    max-height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.summary-cards {
+  display: flex;
+
+  @include text-bold;
+  @media screen and (max-width: $mobile-bp) {
+    max-height: 100%;
+    width: 100%;
+  }
+}
+
+.category-overview {
+  padding: 12px 24px 0 0px;
+  height: calc(100vh - 285px);
+  overflow: hidden;
+
+  @media screen and (max-width: $mobile-bp) {
+    padding: 0 0 50px;
+  }
+}
+
+.footer {
+  padding: 0 8px;
+}
+
+.toolbar-contents {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.menu-open {
+  background: transparent;
+  border: none;
+}

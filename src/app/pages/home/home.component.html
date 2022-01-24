@@ -1,0 +1,35 @@
+<div class="layout">
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="container mat-typography">
+    <app-toolbar>
+      <div class="toolbar-contents">
+        <button class="menu-open" *ngIf="isSmallScreen">
+          <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openSideBar()">menu</mat-icon>
+        </button>
+        <app-date-filter></app-date-filter>
+        <app-active-category *ngIf="!isSmallScreen"></app-active-category>
+      </div>
+
+    </app-toolbar>
+    <app-toolbar *ngIf="isSmallScreen">
+      <app-active-category ></app-active-category>
+    </app-toolbar>
+    <div class="content-container">
+      <app-card class="transactions-card" *ngIf="canShowTransactions">
+        <app-header title="Transactions" subtitle="Expenses / Incomes in the selected date range."></app-header>
+        <app-transactions></app-transactions>
+      </app-card>
+      <div class="overview-cards" *ngIf="canOverviewCards">
+        <div class="summary-cards">
+          <app-summary-card></app-summary-card>
+        </div>
+        <div class="category-overview">
+          <app-category-overview></app-category-overview>
+        </div>
+      </div>
+
+    </div>
+    <app-view-switch *ngIf="isSmallScreen"></app-view-switch>
+    <app-add-new-fab></app-add-new-fab>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.footer {
+  height: 24px;
+  background: #000000;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.verve-branding {
+  padding:3px 12px 0;
+  display: flex;
+  color: #ffffff;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-weight: 800;
+    font-size: 10px;
+  }
+}

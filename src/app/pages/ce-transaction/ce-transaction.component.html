@@ -1,0 +1,33 @@
+<div mat-dialog-content class="modal-container">
+  <div class="content">
+    <div class="header">
+      <div class="left">
+        <app-header [title]="title" [subtitle]="subtitle"></app-header>
+      </div>
+      <mat-icon class="close-btn-icon" (click)="close()">close</mat-icon>
+    </div>
+    <div class="tx-form">
+    <div class="sidebar">
+      <span class="category-header">Choose a Category</span>
+      <div class="trees">
+        <div class="tree">
+         <app-category-tree [expanded]="false" [type]="form.form.get('type')?.value" (categoryChange)="form.handleCategoryChange($event)"></app-category-tree>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <app-tx-form #form (closeModal)="close()"></app-tx-form>
+    </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="delete-btn">
+    <button *ngIf="isEdit" (click)="confirmDelete()" mat-raised-button color="warn">Delete</button>
+  </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="txForm?.saveTransaction()">{{buttonText}}</button>
+    </div>
+  </footer>
+</div>
+

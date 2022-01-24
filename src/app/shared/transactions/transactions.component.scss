@@ -1,0 +1,15 @@
+.content {
+  max-height: calc(100vh - 180px);
+  overflow-y: scroll;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.badge {
+  color: white;
+  background: black;
+  font-size: 10px;
+  margin: 16px;
+  padding: 2px 4px;
+  font-weight: 900;
+}

@@ -1,0 +1,42 @@
+
+$border-color: #BDBDBD;
+:host ::ng-deep {
+  .button-inner {
+    // padding-right: 24px;
+    // border-right: 1px solid $border-color;
+  }
+}
+
+.control-label {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 10px 0;
+}
+
+.date-range-control {
+  display: flex;
+  width: 94%;
+  padding: 8px;
+  border-bottom: 1px solid $border-color;
+}
+.filter-menu {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.filter-menu-item {
+  padding: 8px 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+  span {
+    padding: 4px;
+  }
+}

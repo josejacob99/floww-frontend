@@ -1,0 +1,30 @@
+.popover {
+  position: absolute;
+  margin-top: 4px;
+  z-index: 99;
+
+}
+
+.popover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button-inner {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.popover-button {
+  padding: 6px 12px;
+
+  background: white;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  mat-icon {
+    margin-left: 18px;
+  }
+}

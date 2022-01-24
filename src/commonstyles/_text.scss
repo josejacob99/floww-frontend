@@ -1,0 +1,26 @@
+@mixin text-xxl {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+@mixin text-xl {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+@mixin title {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+@mixin text-bold {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+}
+
+@mixin text-xs {
+  font-size: 12px;
+  font-weight: 400;
+}

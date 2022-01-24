@@ -1,0 +1,12 @@
+<div class="popover-container">
+<button class="popover-button" (click)="togglePopOver()">
+<div class="button-inner">
+  {{text}} <mat-icon *ngIf="iconRight">{{iconRight}}</mat-icon>
+</div>
+</button>
+<div *ngIf="showPopover" class="popover shadow-lg">
+    <ng-content></ng-content>
+</div>
+
+</div>
+

@@ -1,0 +1,39 @@
+.item-row {
+  cursor: pointer;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  mat-icon {
+    margin-right: 10px;
+  }
+
+  .first {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .last{
+    font-weight: 700;
+  }
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: -6px;
+}
+
+.subtitle {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+}

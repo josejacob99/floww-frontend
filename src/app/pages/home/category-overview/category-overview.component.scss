@@ -1,0 +1,26 @@
+@use '../../../../commonstyles' as *;
+
+.content {
+  height: calc(100vh - 361px);
+    overflow: scroll;
+  padding:0 12px 20px 12px;
+
+  @media screen and (max-width: $mobile-bp) {
+    padding: 0 4px 10px;
+   }
+}
+
+.item-row {
+  margin-bottom: 30px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-text {
+  @include text-bold;
+}
+
+

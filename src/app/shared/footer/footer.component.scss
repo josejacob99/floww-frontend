@@ -1,0 +1,39 @@
+@use '../../../commonstyles' as *;
+
+
+:host {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 24px;
+  background: white;
+}
+
+.footer {
+  color: black;
+  width: 83%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.version {
+  @include text-bold;
+}
+
+.verve-branding {
+  margin-left: 12px;
+  letter-spacing: 1px;
+
+  .text-xs {
+    font-size: 9px;
+    font-weight: 700;
+    height: 14px;
+  }
+
+  .title {
+    font-weight: 800;
+    font-size: 12px;
+  }
+}

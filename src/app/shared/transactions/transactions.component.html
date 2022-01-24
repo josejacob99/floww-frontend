@@ -1,0 +1,9 @@
+<div class="content">
+
+<div class="transactions" *ngFor="let item of groupedTransactons | keyvalue: keyDescOrder">
+  <span class="badge">{{item.key}}</span>
+  <app-transaction-row *ngFor="let x of item.value" [transaction]="x">
+  </app-transaction-row>
+  <hr>
+</div>
+</div>

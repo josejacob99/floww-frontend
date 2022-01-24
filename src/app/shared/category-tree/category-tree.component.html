@@ -1,0 +1,24 @@
+<ul class="tree noselect">
+  <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: categories, rcount: 0 }"></ng-container>
+</ul>
+
+
+
+<ng-template #recursiveListTmpl let-list="list" let-rcount="rcount">
+  <li *ngFor="let item of list; let i = index;">
+    <div class="item-row" (click)="selectCategory(item)" class="level-{{rcount}}"
+      [ngClass]="{'m--expanded': item.expanded, 'm--selected': isCategorySelected(item)}">
+
+      <div class="node-label">
+        <span class="chevron" [ngClass]="{'no-children': !item.children.length, 'expanded-list': item.expanded}"></span>
+        <label class="item-label">{{item.name }}</label>
+
+      </div>
+      <mat-icon (click)="addCategory($event, item)" matRipple class="add-category-btn white-icon">add</mat-icon>
+    </div>
+    <ul class="tree" *ngIf="item.children.length > 0 && (item.expanded || expanded)">
+      <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.children, rcount: rcount + 1 }">
+      </ng-container>
+    </ul>
+  </li>
+</ng-template>
