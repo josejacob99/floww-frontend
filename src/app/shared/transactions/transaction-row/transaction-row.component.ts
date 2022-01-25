@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ITransaction, TransactionTypes } from 'src/app/core/interface/transactions.interface';
-import { CeTransactionComponent } from 'src/app/pages/ce-transaction/ce-transaction.component';
 
 @Component({
   selector: 'app-transaction-row',
@@ -13,7 +12,7 @@ export class TransactionRowComponent implements OnInit {
   @Input()
   transaction: ITransaction | undefined;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,10 +25,6 @@ export class TransactionRowComponent implements OnInit {
   }
 
   edit(id: string | undefined) {
-    const dialogRef = this.dialog.open(CeTransactionComponent, {
-      width: '75%',
-      disableClose: true,
-      data: {id}
-    });
+    this.router.navigate(['create', id]);
   }
 }

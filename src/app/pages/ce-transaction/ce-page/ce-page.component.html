@@ -1,0 +1,27 @@
+<app-card class="container-card">
+  <div class="content">
+    <div class="header">
+      <div class="left">
+        <app-header [title]="title" [subtitle]="subtitle"></app-header>
+      </div>
+      <div class="right">
+         <button *ngIf="isEdit"  mat-raised-button color="warn" (click)="confirmDelete()">Delete</button>
+      </div>
+    </div>
+    <div class="tx-form">
+
+    <div class="container">
+      <app-tx-form #form (categoryClick)="openCategoryTree()" (closeModal)="back()"></app-tx-form>
+    </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <button mat-raised-button color="accent" (click)="back()">Back</button>
+
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" (click)="txForm?.saveTransaction()">{{buttonText}}</button>
+    </div>
+  </footer>
+</app-card>
+

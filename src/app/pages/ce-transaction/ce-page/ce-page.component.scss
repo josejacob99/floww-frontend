@@ -1,0 +1,30 @@
+@use '../../../../commonstyles' as *;
+
+
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container-card {
+  width: 50%;
+
+  @media screen and (max-width: $mobile-bp) {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content:space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}

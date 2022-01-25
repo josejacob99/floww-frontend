@@ -12,6 +12,9 @@ import { TransactionForm } from './form';
 export class TxFormComponent extends TransactionForm implements OnInit {
   @Output()
   closeModal = new EventEmitter();
+
+  @Output()
+  categoryClick = new EventEmitter();
   constructor(private txService: TransactionService, private categoryState: CategoryStateService) {
     super();
   }
@@ -30,6 +33,11 @@ export class TxFormComponent extends TransactionForm implements OnInit {
 
   handleCategoryChange(categoryPath: string[]) {
     this.form.get('category')?.setValue(categoryPath.join(" / "))
+  }
+
+
+  handleCategoryClick() {
+    this.categoryClick.emit();
   }
 
   saveTransaction() {

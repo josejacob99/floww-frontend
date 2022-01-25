@@ -6,9 +6,9 @@
       <mat-option value="income">Income</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field class="category-feild" appearance="outline">
+  <mat-form-field class="category-feild" appearance="outline" (click)="handleCategoryClick()">
     <mat-label>Category</mat-label>
-    <input matInput  formControlName="category" readonly>
+    <input matInput  formControlName="category" readonly >
     <mat-hint>Choose a category from the category tree.</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="outline">
