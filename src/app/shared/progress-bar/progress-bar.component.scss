@@ -3,17 +3,21 @@
 
 .progress-bar {
   width: 100%;
+  box-sizing: content-box;
   height: 6px;
   border: 1px solid black;
+  position: relative;
+}
 
-  .progress {
-    position: relative;
-    height: 6px;
-    width: 0%;
-    background: black;
-    animation: progressBar 1s ease-in-out;
-    animation-fill-mode:both;
-  }
+.progress {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 0%;
+  overflow: hidden;
+  background: black;
+  animation: progressBar 1s ease-in-out;
+  animation-fill-mode:both;
 }
 
 .indicator {

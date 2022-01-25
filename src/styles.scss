@@ -72,7 +72,7 @@ $custom-typography: mat-typography-config($font-family: '"Ubuntu", sans-serif;')
 
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body { margin: 0;
@@ -108,7 +108,7 @@ ul,li{
 
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -118,7 +118,7 @@ ul,li{
 ::-webkit-scrollbar-thumb {
   background-color: #d6dee1;
   border-radius: 20px;
-  border: 8px solid transparent;
+  border: 2px solid transparent;
   background-clip: content-box;
 }
 

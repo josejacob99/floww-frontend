@@ -2,7 +2,7 @@
   max-height: calc(100vh - 180px);
   overflow-y: scroll;
   padding-bottom: 20px;
-  padding-right: 10px;
+  box-sizing: content-box;
 }
 
 .badge {
