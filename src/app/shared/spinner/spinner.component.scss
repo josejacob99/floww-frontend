@@ -25,8 +25,8 @@
 
   color: #040808;
 
-  background-color: #2eb69c;
-  box-shadow: 0 0 6px #2eb69c;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px #ffffff;
 
   border: 0;
   border-radius: 4px;
@@ -37,16 +37,16 @@
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 10px #2eb69c;
+    box-shadow: 0 0 10px #ffffff;
   }
 
   &:active {
-    box-shadow: 0 0 2px #2eb69c;
+    box-shadow: 0 0 2px #ffffff;
   }
 }
 
 .loader {
-  --loader-color: #2eb69c;
+  --loader-color: #ffffff;
   --loader-shadow-color: #2eb69c;
 
   --loader-part-size: 24px;
