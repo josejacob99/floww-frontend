@@ -49,9 +49,10 @@ export class CePageComponent implements OnInit {
   }
 
   openCategoryTree() {
+    const txType = this.txForm?.form.value.type;
     const dialogRef = this.dialog.open(CategoryPopupComponent, {
-      width: '100%'
-      // data: {name: this.name, animal: this.animal}
+      width: '100%',
+      data: {txType}
     });
   }
 

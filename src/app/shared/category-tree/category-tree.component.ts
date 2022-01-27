@@ -97,7 +97,6 @@ export class CategoryTreeComponent {
   travseAndExpandCategory(category: string, list: Categories[]) {
     for (let c of list) {
       if (c.name === category) {
-        console.log(c);
         c.expanded = !c.expanded;
         break;
       } else if (c.children.length) {
