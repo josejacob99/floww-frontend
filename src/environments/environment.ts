@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //api: 'http://localhost:3000/',
-  api: 'https://api.floww.xyz/'
+  api: 'http://localhost:3000/',
+  //api: 'https://api.floww.xyz/'
 };
 
 /*

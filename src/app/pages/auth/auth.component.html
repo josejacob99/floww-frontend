@@ -1,14 +1,12 @@
 <div class="container">
-  <div class="left mat-typography">
-    <h1>Add Observability to your <br>Transactions</h1>
-    <ul class="list">
-      <li>fully editable schema</li>
-      <li>choose from JSON, YAML, XML</li>
-      <li>API integration available</li>
-    </ul>
+  <div class="content">
+    <div class="logo">
+      <app-logo></app-logo>
+    </div>
+    <div class="button-container">
+      <button (click)="loginWithGoogle()" class="button google-button" mat-stroked-button color="primary">
+        <img width="28px" src="assets/google.png" alt="google">
+        Log in with Google</button>
+    </div>
   </div>
-  <div class="right">
-    <router-outlet></router-outlet>
-  </div>
-
 </div>

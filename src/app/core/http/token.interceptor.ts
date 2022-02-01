@@ -3,21 +3,32 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from '../service/auth.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Impvc2VqYWNvYjk5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJHZRS3NkSi9ZS1BrTThPazRBZFZpVE9HMUcxY3cuRS5Fam45ODZTTXdXRExqb2pOTVh5NFJTIiwidXNlcklkIjoiNjEzMzYxYWFjZmEwN2I0YzE4MThkOWRjIiwic3ViIjoiNjEzMzYxYWFjZmEwN2I0YzE4MThkOWRjIiwiaWF0IjoxNjQyOTUxNzk0LCJleHAiOjE2NDMzODM3OTR9.fhZQOoyKoiX7FKqQ2uhkmkIzZUbvtXhaivetOSplamE`
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.token}`
+        Authorization: `Bearer ${this.authService.getAuthToken}`
       }
     });
-    return next.handle(request);
+
+    return next.handle(request).pipe(catchError((error) => this.handleError(error)));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if(error.error.statusCode === 401) {
+      this.authService.logout();
+    }
+
+    return throwError(error.error.statusCode);
   }
 }

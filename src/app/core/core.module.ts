@@ -1,5 +1,6 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AuthenticationGuard } from './guards/authenticated.guard';
 import { CategoryPipe } from './pipes/category.pipe';
 import { UserCurreny } from './pipes/curreny.pipe';
 
@@ -15,6 +16,6 @@ import { UserCurreny } from './pipes/curreny.pipe';
     CategoryPipe,
     UserCurreny
   ],
-  providers: [CurrencyPipe, CategoryPipe]
+  providers: [CurrencyPipe, CategoryPipe, AuthenticationGuard]
 })
 export class CoreModule { }

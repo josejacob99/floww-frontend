@@ -56,7 +56,7 @@ export const authRoutes: Route[] = [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '1095327336712-vapjjkummis1oe09vddl7daamoqc4mcl.apps.googleusercontent.com'
+            '1095327336712-jr6nno76qdo9njcpho21p5rat1puqq7o.apps.googleusercontent.com'
           )
         }
       ]

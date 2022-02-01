@@ -107,7 +107,8 @@ import { ViewSwitchComponent } from './view-switch/view-switch.component';
     ProgressBarComponent,
     ConfirmDialogComponent,
     SpinnerComponent,
-    ViewSwitchComponent
+    ViewSwitchComponent,
+    LogoComponent
   ],
   providers: [],
 })
