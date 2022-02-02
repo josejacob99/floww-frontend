@@ -20,7 +20,7 @@ export class TxFormComponent extends TransactionForm implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryState.category$.subscribe(data => {
+    this.categoryState.selectedCategory$.subscribe(data => {
       this.handleCategoryChange(data);
     });
 

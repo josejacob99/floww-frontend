@@ -22,7 +22,7 @@ export class TransactionService {
     this.uiState.showSpinner();
     const startDate = moment(this.dateFilter.seletedDateValue.startDate).startOf('day').format('YYYY-MM-DDTHH:mm');
     const endDate =  moment(this.dateFilter.seletedDateValue.endDate).endOf('day').format('YYYY-MM-DDTHH:mm');
-    const category = this.categoryState.seletedCategory as string[];
+    const category = this.categoryState.selectedCategory as string[];
     let params = new HttpParams();
 
     if(category) {

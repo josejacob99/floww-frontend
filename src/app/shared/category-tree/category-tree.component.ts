@@ -11,6 +11,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { ICategories, ICategory } from 'src/app/core/interface/category.interface';
 import { CategoryService } from 'src/app/core/service/category.service';
 import { CategoryStateService } from '../../core/service/state/category-state.service';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -60,7 +61,7 @@ export class CategoryTreeComponent {
     private categoryState: CategoryStateService,
     private categoryService: CategoryService
   ) {
-    this.categoryState.category$.subscribe(
+    this.categoryState.selectedCategory$.subscribe(
       (cat) => (this.selectedCategory = cat)
     );
     this.fetchCategory();
@@ -82,11 +83,9 @@ export class CategoryTreeComponent {
   }
 
   fetchCategory() {
-    this.categoryService.getAll().subscribe((category: any) => {
+    this.categoryState.category$.subscribe((category: ICategories) => {
       this.expense = [category.expense];
       this.income = [category.income];
-      this.debt = [category.debt];
-      this.lends = [category.lends];
     });
   }
 

@@ -15,7 +15,7 @@ export class ActiveCategoryComponent implements OnDestroy, OnInit {
   constructor(private txService: TransactionService, private categoryState: CategoryStateService) { }
 
   ngOnInit(): void {
-    this.categoryState.category$
+    this.categoryState.selectedCategory$
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(c => {
       this.selectedCategory = c.join(' / ');

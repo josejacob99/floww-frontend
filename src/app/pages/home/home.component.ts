@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { CategoryService } from 'src/app/core/service/category.service';
 import { CategoryStateService, DateFilterStateService } from 'src/app/core/service/state';
 import { HomeViews, UIStateService } from 'src/app/core/service/state/ui-state.service';
 import { TransactionService } from 'src/app/core/service/transaction.service';
@@ -16,7 +17,9 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   isSmallScreen = false;
   currentView = HomeViews.Transactions
-  constructor(private txService: TransactionService, private dateFilterState: DateFilterStateService, private uiState: UIStateService) { }
+  constructor(private txService: TransactionService,
+    private categoriesService: CategoryService,
+    private dateFilterState: DateFilterStateService, private uiState: UIStateService) { }
 
 
   ngOnInit(): void {
@@ -24,6 +27,7 @@ export class HomeComponent implements OnDestroy, OnInit {
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(date => {
       this.txService.getAll();
+      this.categoriesService.getAll();
     });
     this.uiState.isSmallScreen$.subscribe(isSmallScreen => {
       this.isSmallScreen = isSmallScreen;

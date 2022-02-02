@@ -14,7 +14,7 @@ export class BreadcrumbsComponent implements OnInit {
   constructor(private categoryState: CategoryStateService) { }
 
   ngOnInit(): void {
-    this.categories$ = this.categoryState.category$
+    this.categories$ = this.categoryState.selectedCategory$
   }
 
 }
