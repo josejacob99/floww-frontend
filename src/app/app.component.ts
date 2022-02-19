@@ -2,6 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/service/auth.service';
 import { UIStateService } from './core/service/state/ui-state.service';
+import { SwUpdateService } from './core/service/sw-update.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { UIStateService } from './core/service/state/ui-state.service';
 export class AppComponent implements OnInit {
   title = 'floww';
 
-  constructor(private observer: BreakpointObserver, private uiState: UIStateService, private authService: AuthService) {
+  constructor(private observer: BreakpointObserver, private uiState: UIStateService, private authService: AuthService, private swUpdate: SwUpdateService) {
 
   }
 
@@ -21,5 +22,6 @@ export class AppComponent implements OnInit {
     });
 
     this.authService.verifyUser().subscribe();
+    this.swUpdate.checkForUpdate();
   }
 }
