@@ -35,6 +35,11 @@ export class CategoryStateService {
   setCategories(categories: ICategories) {
     this._categories.next(categories);
   }
+
+  clearCategorySelection() {
+    this.selectCategory([]);
+  }
+
   private emptyCategory(): ICategory {
     return {
       name: '',

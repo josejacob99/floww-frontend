@@ -24,7 +24,7 @@ export class ActiveCategoryComponent implements OnDestroy, OnInit {
   }
 
   clearCategory() {
-    this.categoryState.selectCategory([]);
+    this.categoryState.clearCategorySelection();
   }
 
   ngOnDestroy() {

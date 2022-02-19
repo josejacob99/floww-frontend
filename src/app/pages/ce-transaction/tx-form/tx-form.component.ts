@@ -46,9 +46,15 @@ export class TxFormComponent extends TransactionForm implements OnInit {
       tx.category = ',' + tx.category.toString().split(' / ').toString() + ',';
 
       if (this.transactionId) {
-        this.txService.update(tx, this.form.get('id')?.value).subscribe(x => this.txService.getAll());
+        this.txService.update(tx, this.form.get('id')?.value).subscribe(x => {
+          this.categoryState.clearCategorySelection();
+          this.txService.getAll();
+        });
       } else {
-        this.txService.save(tx).subscribe(x => this.txService.getAll());
+        this.txService.save(tx).subscribe(x => {
+          this.categoryState.clearCategorySelection();
+          this.txService.getAll();
+        });
       }
 
 
