@@ -43,7 +43,7 @@ export class HomeComponent implements OnDestroy, OnInit {
   }
 
   openSideBar() {
-    this.uiState.toggle();
+    this.uiState.toggleSideBar();
   }
 
 

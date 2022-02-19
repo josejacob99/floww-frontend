@@ -50,6 +50,9 @@ export class CategoryTreeComponent {
   @Output()
   categoryChange: EventEmitter<string[]> = new EventEmitter();
 
+  @Output()
+  canCloseTree: EventEmitter<boolean> = new EventEmitter();
+
   income: Categories[] = [];
   expense: Categories[] = [];
   debt: Categories[] = [];
@@ -130,6 +133,13 @@ export class CategoryTreeComponent {
     }
     this.categoryChange.emit(item.path);
     this.categoryState.selectCategory(item.path);
+    if(!item.children.length) {
+      this.closeTree();
+    }
+  }
+
+  private closeTree() {
+    this.canCloseTree.emit(true);
   }
 
   isCategorySelected(item: Categories) {

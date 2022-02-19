@@ -45,7 +45,7 @@ export class UIStateService {
     return this._isSmallScreen.asObservable();
   }
 
-  toggle() {
+  toggleSideBar() {
     if(this.isSmallScreenValue && !this.currentsidebarState) {
       this.document.body.classList.add('sidebar-open');
     } else {

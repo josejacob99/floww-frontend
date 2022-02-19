@@ -3,7 +3,7 @@
   <app-logo></app-logo>
     <div class="trees">
       <div class="tree">
-        <app-category-tree></app-category-tree>
+        <app-category-tree (canCloseTree)="closeUiSideBar()"></app-category-tree>
       </div>
       <div class="tree">
         <app-category-tree [type]="type.Income"></app-category-tree>

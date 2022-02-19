@@ -9,12 +9,14 @@ import { UIStateService } from 'src/app/core/service/state/ui-state.service';
 })
 export class SidebarComponent implements OnInit {
   type = TransactionTypes;
+  isSmallScreen = false;
 
 
   constructor(private eRef: ElementRef, public uiState: UIStateService) {}
 
   ngOnInit(): void {
     this.uiState.isSmallScreen$.subscribe((isSmallScreen)=> {
+      this.isSmallScreen = isSmallScreen;
       isSmallScreen ? this.uiState.sidebarState = false: this.uiState.sidebarState = true;
     });
 
@@ -29,5 +31,11 @@ export class SidebarComponent implements OnInit {
 
   closeSidebar() {
     this.eRef.nativeElement.style.width = '0px';
+  }
+
+  closeUiSideBar() {
+    if(this.isSmallScreen) {
+      this.uiState.toggleSideBar();
+    }
   }
 }
