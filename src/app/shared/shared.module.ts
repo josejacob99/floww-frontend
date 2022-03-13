@@ -35,7 +35,7 @@ import { CoreModule } from '../core/core.module';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ViewSwitchComponent } from './view-switch/view-switch.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     ToolbarComponent,
@@ -78,7 +78,8 @@ import { ViewSwitchComponent } from './view-switch/view-switch.component';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule
   ],
   exports: [ToolbarComponent,
     MatToolbarModule,
@@ -108,7 +109,8 @@ import { ViewSwitchComponent } from './view-switch/view-switch.component';
     ConfirmDialogComponent,
     SpinnerComponent,
     ViewSwitchComponent,
-    LogoComponent
+    LogoComponent,
+    MatChipsModule
   ],
   providers: [],
 })

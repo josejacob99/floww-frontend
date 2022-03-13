@@ -6,6 +6,9 @@
       <span class="subtitle">{{transaction?.category | category}}</span>
     </div>
   </div>
+  <div class="middle">
+    <span class="badge" *ngFor="let t of transaction?.tags">{{t}}</span>
+  </div>
   <div class="last">
      {{transaction?.amount | usercurreny}}
   </div>

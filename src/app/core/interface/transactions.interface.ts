@@ -13,4 +13,5 @@ export interface ITransaction {
   remarks: string;
   amount: string;
   type: TransactionTypes;
+  tags: string[];
 }

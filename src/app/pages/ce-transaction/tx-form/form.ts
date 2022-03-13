@@ -37,7 +37,7 @@ export class TransactionForm {
     category: new FormControl('', Validators.required),
     type: new FormControl('expense', Validators.required),
     remarks: new FormControl('', Validators.required),
-    tags: new FormControl(''),
+    tags: new FormControl([]),
   });
   unSubscribe = new Subject();
 
