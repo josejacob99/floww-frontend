@@ -6,7 +6,7 @@
       <span class="subtitle">{{transaction?.category | category}}</span>
     </div>
   </div>
-  <div class="middle">
+  <div class="middle" *ngIf="transaction?.tags?.length">
     <span class="badge" *ngFor="let t of transaction?.tags">{{t}}</span>
   </div>
   <div class="last">
