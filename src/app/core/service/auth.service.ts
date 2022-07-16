@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -16,18 +17,21 @@ export class AuthService {
   endPoint = 'auth'
   constructor(private http: HttpClient, private router: Router,
     private authState: AuthStateService,
-    private uiState: UIStateService) { }
+    private uiState: UIStateService,
+    private socialAuthService: SocialAuthService) { }
 
-  loginWithGoogleidToken(token: string): Observable<AuthenticationPayload> {
+  loginWithGoogleIdToken(token: string): Observable<AuthenticationPayload> {
     return this.http.post<AuthenticationPayload>(`${environment.api}${this.endPoint}/verify-google-id-token`, { token })
       .pipe(tap(data => this.authenticate(data.accessToken)));
   }
 
   logout() {
-    localStorage.removeItem(AUTH_TOKEN);
-    this.router.navigate(['/auth/login']);
-    this.authState.logout();
-    this.uiState.hideSpinner();
+    this.socialAuthService.signOut().then(()=> {
+      localStorage.removeItem(AUTH_TOKEN);
+      //this.authState.logout();
+      this.uiState.hideSpinner();
+      this.router.navigate(['/auth/login']);
+    });
   }
 
   authenticate(token: string) {

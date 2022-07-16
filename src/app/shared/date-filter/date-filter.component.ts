@@ -31,8 +31,6 @@ export class DateFilterComponent implements OnInit {
     end: new FormControl('', Validators.required)
   });;
   quickFilters = QuickFilters;
-  @Output()
-  dateChange: EventEmitter<DateRange> = new EventEmitter();
 
   constructor(private dateStateService: DateFilterStateService, private txService: TransactionService) {}
 
@@ -45,7 +43,7 @@ export class DateFilterComponent implements OnInit {
   listenDateChange() {
     this.dateRangeControl.valueChanges.pipe(untilDestroyed(this), debounceTime(200), distinctUntilChanged()).subscribe((value) => {
       if (this.dateRangeControl.valid) {
-        this.dateChange.emit(value);
+        this.setDateInState();
       }
     });
   }
@@ -75,8 +73,12 @@ export class DateFilterComponent implements OnInit {
   }
 
   private setFilterDate(startDate: string, endDate: string) {
-      this.dateRangeControl.get('start')?.setValue(startDate);
-      this.dateRangeControl.get('end')?.setValue(endDate);
-      this.dateStateService.setDateFilter(startDate, endDate);
+       this.dateRangeControl.get('start')?.setValue(new Date(startDate));
+       this.dateRangeControl.get('end')?.setValue(new Date(endDate));
+      this.setDateInState();
+  }
+
+  private setDateInState() {
+    this.dateStateService.setDateFilter(this.dateRangeControl.value.start, this.dateRangeControl.value.end);
   }
 }

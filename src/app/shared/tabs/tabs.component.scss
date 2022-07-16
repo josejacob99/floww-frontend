@@ -1,0 +1,32 @@
+:host {
+  width: 100%;
+  font-size: 14px;
+  padding-left: 6px;
+  font-weight: 900;
+}
+
+ul {
+  width: 120px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+li {
+  cursor: pointer;
+
+  span {
+    padding-bottom: 4px;
+
+    &:hover {
+      border-bottom: 3px solid black;
+    }
+
+    &.active {
+      border-bottom: 3px solid black;
+    }
+  }
+}

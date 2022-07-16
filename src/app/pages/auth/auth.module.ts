@@ -7,8 +7,8 @@ import { AuthComponent } from './auth.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './signup/signup.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { LogoutComponent } from './logout/logout.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 export const authRoutes: Route[] = [
   {
@@ -28,6 +28,9 @@ export const authRoutes: Route[] = [
     {
       path: 'forgot-password', component: ForgotPasswordComponent
     },
+    {
+      path: 'logout', component: LogoutComponent
+    },
   ]
   },
 ];
@@ -38,29 +41,17 @@ export const authRoutes: Route[] = [
     AuthComponent,
     LoginComponent,
     SignUpComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LogoutComponent
   ],
   imports: [
+    CoreModule,
     MatToolbarModule,
     RouterModule.forChild(authRoutes),
     SharedModule,
-    FlexLayoutModule,
-    SocialLoginModule
+    FlexLayoutModule
   ],
   exports: [],
-  providers: [ {
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: false,
-      providers: [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider(
-            '1095327336712-jr6nno76qdo9njcpho21p5rat1puqq7o.apps.googleusercontent.com'
-          )
-        }
-      ]
-    } as SocialAuthServiceConfig,
-  }    ],
+  providers: [],
 })
 export class AuthModule { }

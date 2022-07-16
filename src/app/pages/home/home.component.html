@@ -7,13 +7,17 @@
           <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="openSideBar()">menu</mat-icon>
         </button>
         <app-date-filter></app-date-filter>
-        <app-active-category *ngIf="!isSmallScreen"></app-active-category>
+        <app-menu></app-menu>
+        <!-- <app-active-category *ngIf="!isSmallScreen"></app-active-category> -->
       </div>
+      <!-- <div class="active-filter">
+        <app-active-category></app-active-category>
+      </div> -->
 
     </app-toolbar>
-    <app-toolbar *ngIf="isSmallScreen">
-      <app-active-category ></app-active-category>
-    </app-toolbar>
+    <div class="active-filter">
+      <app-active-category></app-active-category>
+    </div>
     <div class="content-container">
       <app-card class="transactions-card" *ngIf="canShowTransactions">
         <app-header title="Transactions" subtitle="Expenses / Incomes in the selected date range."></app-header>

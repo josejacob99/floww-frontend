@@ -14,7 +14,7 @@ import { UserCurreny } from './pipes/curreny.pipe';
   ],
   exports: [
     CategoryPipe,
-    UserCurreny
+    UserCurreny,
   ],
   providers: [CurrencyPipe, CategoryPipe, AuthenticationGuard]
 })

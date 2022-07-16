@@ -5,6 +5,7 @@ import { TransactionService } from '../../../core/service/transaction.service';
 import { TransactionForm } from './form';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-tx-form',
@@ -15,13 +16,13 @@ export class TxFormComponent extends TransactionForm implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   tags: string[] = [];
-
+  existingTags: string[] = [];
   @Output()
   closeModal = new EventEmitter();
 
   @Output()
   categoryClick = new EventEmitter();
-  constructor(private txService: TransactionService, private categoryState: CategoryStateService) {
+  constructor(private txService: TransactionService, private categoryState: CategoryStateService, private userService: UserService) {
     super();
   }
 
@@ -35,6 +36,13 @@ export class TxFormComponent extends TransactionForm implements OnInit {
     });
 
     this.setDefaultDate();
+    this.fetchUser();
+  }
+
+  fetchUser() {
+    this.userService.getUser().subscribe((data) => {
+      this.existingTags = data.tags;
+    });
   }
 
   add(event: MatChipInputEvent): void {
@@ -45,6 +53,10 @@ export class TxFormComponent extends TransactionForm implements OnInit {
 
     event.chipInput!.clear();
     this.form.get('tags')?.setValue(this.tags);
+  }
+
+  addTag(tag: string) {
+    this.tags.push(tag);
   }
 
   remove(fruit: string): void {

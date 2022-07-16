@@ -78,3 +78,10 @@
   background: transparent;
   border: none;
 }
+
+.active-filter {
+  padding:  8px 10px 2px;
+  @media screen and (max-width: $mobile-bp) {
+    padding: 0;
+  }
+}

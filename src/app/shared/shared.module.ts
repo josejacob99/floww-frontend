@@ -25,7 +25,7 @@ import { AddNewFabComponent } from './add-new-fab/add-new-fab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LogoComponent } from './sidebar/logo/logo.component';
 import { SidebarFooterComponent } from './sidebar/sidebar-footer/sidebar-footer.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './header/header.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionRowComponent } from './transactions/transaction-row/transaction-row.component';
@@ -35,7 +35,12 @@ import { CoreModule } from '../core/core.module';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ViewSwitchComponent } from './view-switch/view-switch.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
+import { BadgeComponent } from './badge/badge.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu';
+import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     ToolbarComponent,
@@ -56,7 +61,10 @@ import {MatChipsModule} from '@angular/material/chips';
     ProgressBarComponent,
     ConfirmDialogComponent,
     SpinnerComponent,
-    ViewSwitchComponent
+    ViewSwitchComponent,
+    BadgeComponent,
+    TabsComponent,
+    MenuComponent
   ],
   imports: [
     CoreModule,
@@ -79,7 +87,9 @@ import {MatChipsModule} from '@angular/material/chips';
     ReactiveFormsModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatMenuModule
   ],
   exports: [ToolbarComponent,
     MatToolbarModule,
@@ -110,7 +120,12 @@ import {MatChipsModule} from '@angular/material/chips';
     SpinnerComponent,
     ViewSwitchComponent,
     LogoComponent,
-    MatChipsModule
+    MatChipsModule,
+    BadgeComponent,
+    TabsComponent,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MenuComponent
   ],
   providers: [],
 })

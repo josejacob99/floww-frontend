@@ -1,3 +1,11 @@
-<div class="selected-category">
-  {{selectedCategory | titlecase}} <button *ngIf="selectedCategory" class="clear-button" (click)="clearCategory()">Clear</button>
- </div>
+<!-- <div class="selected-category">
+   <button *ngIf="selectedCategory" class="clear-button" (click)="clearCategory()">Clear</button>
+ </div> -->
+
+<app-badge (click)="clearCategory()" *ngIf="selectedCategory" title="Clear filter">
+  <div class="badge-content">
+    {{selectedCategory | titlecase}}
+    <mat-icon>clear</mat-icon>
+  </div>
+
+</app-badge>
