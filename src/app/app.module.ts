@@ -12,11 +12,13 @@ import { CoreModule } from './core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { AuthComponent } from './pages/auth/auth.component';
+import { LogoutComponent } from './pages/auth/logout/logout.component';
 
 const socialAuthConfig = {
   provide: 'SocialAuthServiceConfig',
   useValue: {
-    autoLogin: false,
+    autoLogin: true,
     providers: [
       {
         id: GoogleLoginProvider.PROVIDER_ID,
@@ -24,12 +26,17 @@ const socialAuthConfig = {
           '1095327336712-jr6nno76qdo9njcpho21p5rat1puqq7o.apps.googleusercontent.com'
         )
       }
-    ]
+    ],
+    onError: (err) => {
+      console.error(err);
+    }
   } as SocialAuthServiceConfig,
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

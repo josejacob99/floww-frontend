@@ -10,14 +10,12 @@ import { SwUpdateService } from './core/service/sw-update.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'floww';
-
   constructor(private observer: BreakpointObserver, private uiState: UIStateService, private authService: AuthService, private swUpdate: SwUpdateService) {
 
   }
 
   ngOnInit(): void {
-    this.observer.observe(['(max-width: 1024px)']).subscribe((res) => {
+    this.observer.observe(['(max-width: 1024px)']).subscribe((res: any) => {
       this.uiState.isSmallScreen = res.matches;
     });
 

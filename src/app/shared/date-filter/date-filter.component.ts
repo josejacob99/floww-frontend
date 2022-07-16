@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import * as moment from 'moment';
@@ -26,9 +26,9 @@ export interface DateRange {
   styleUrls: ['./date-filter.component.scss']
 })
 export class DateFilterComponent implements OnInit {
-  dateRangeControl: FormGroup = new FormGroup({
-    start: new FormControl('', Validators.required),
-    end: new FormControl('', Validators.required)
+  dateRangeControl: UntypedFormGroup = new UntypedFormGroup({
+    start: new UntypedFormControl('', Validators.required),
+    end: new UntypedFormControl('', Validators.required)
   });;
   quickFilters = QuickFilters;
 

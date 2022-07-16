@@ -1,7 +1,7 @@
-import { FormGroup, FormControl, AbstractControl, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, AbstractControl, FormArray } from '@angular/forms';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function Formvalidator(form: FormGroup, errorMessages: any) {
+export function Formvalidator(form: UntypedFormGroup, errorMessages: any) {
     const formErrors =  Object.create(form.value);
 
     Object.keys(formErrors).forEach((index) => {
@@ -11,7 +11,7 @@ export function Formvalidator(form: FormGroup, errorMessages: any) {
 
     Object.keys(form.controls).map(field => {
         const control = form.get(field);
-        if (control instanceof FormControl) {
+        if (control instanceof UntypedFormControl) {
             if (control.errors && !control.pristine) {
                 if (errorMessages[field][Object.keys(control.errors)[0]]) {
                     formErrors[field] = errorMessages[field][Object.keys(control.errors)[0]];
@@ -21,7 +21,7 @@ export function Formvalidator(form: FormGroup, errorMessages: any) {
             } else {
                 formErrors[field] = '';
             }
-        } else if (control instanceof FormGroup) {
+        } else if (control instanceof UntypedFormGroup) {
             Formvalidator(control, errorMessages);
         }
     });
@@ -30,12 +30,12 @@ export function Formvalidator(form: FormGroup, errorMessages: any) {
 
 }
 
-export function markDirtyAllControlsWithValue(form: FormGroup): void {
-  const recursiveFunc = (formGroup: FormGroup) => {
+export function markDirtyAllControlsWithValue(form: UntypedFormGroup): void {
+  const recursiveFunc = (formGroup: UntypedFormGroup) => {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
        control?.markAsDirty();
-      if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormGroup) {
         recursiveFunc(control);
       }
     });

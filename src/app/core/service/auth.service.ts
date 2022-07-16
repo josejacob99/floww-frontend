@@ -28,10 +28,10 @@ export class AuthService {
   logout() {
     this.socialAuthService.signOut().then(()=> {
       localStorage.removeItem(AUTH_TOKEN);
-      //this.authState.logout();
+      this.authState.logout();
       this.uiState.hideSpinner();
-      this.router.navigate(['/auth/login']);
     });
+    this.router.navigate(['/auth']);
   }
 
   authenticate(token: string) {

@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import {
@@ -30,14 +30,14 @@ export class TransactionForm {
     },
   };
 
-  form = new FormGroup({
-    id: new FormControl(''),
-    date: new FormControl('', Validators.required),
-    amount: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required),
-    type: new FormControl('expense', Validators.required),
-    remarks: new FormControl('', Validators.required),
-    tags: new FormControl([]),
+  form = new UntypedFormGroup({
+    id: new UntypedFormControl(''),
+    date: new UntypedFormControl('', Validators.required),
+    amount: new UntypedFormControl('', Validators.required),
+    category: new UntypedFormControl('', Validators.required),
+    type: new UntypedFormControl('expense', Validators.required),
+    remarks: new UntypedFormControl('', Validators.required),
+    tags: new UntypedFormControl([]),
   });
   unSubscribe = new Subject();
 
